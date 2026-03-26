@@ -16,7 +16,7 @@ export default function DataTable({ colonnes, fetchData }) {
     if (loading) {
         return <p className="p-4 text-sm">loading</p>;
     }
-    
+
       return (
         <div className="p-4 ">
             <table className="w-full bg-white">
@@ -25,7 +25,9 @@ export default function DataTable({ colonnes, fetchData }) {
                     <td key={index} className="p-2">
                         {colonne.label}
                     </td>
-                ))}
+                )
+                )
+                }
               </tr>
 
               {data.map((item, index) => (
@@ -34,9 +36,13 @@ export default function DataTable({ colonnes, fetchData }) {
                          <td key={i} className="p-2">
                              {item[colonne.key]}
                         </td>
-                    ))}
+                    )
+                    )
+                    }
                 </tr>
-            ))}
+            )
+            )
+            }
             </table>
           </div>
     );

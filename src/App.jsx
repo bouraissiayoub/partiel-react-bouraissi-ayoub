@@ -1,5 +1,8 @@
 import './App.css'
-import DataTable from './Component/DataTable/DataTable.jsx';
+//import DataTable from './Component/DataTable/DataTable.jsx';
+import {lazy , Suspense} from 'react';
+const DataTable = lazy(() => import('./Component/DataTable/DataTable.jsx'));
+
 
 function App() {
     const colonnes = [
@@ -18,7 +21,9 @@ function App() {
     return (
         <div className="p-4">
             <h1 className='text-3xl'>tableau des utilisateur</h1>
+            <Suspense fallback={<p className="p-4 text-sm">loding composant</p>}>
             <DataTable colonnes={colonnes} fetchData={fetchUsers} />
+            </Suspense>
         </div>
     );
 }
